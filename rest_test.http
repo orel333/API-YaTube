@@ -1,0 +1,196 @@
+POST http://127.0.0.1:8000/api/v1/jwt/create/
+Content-Type: application/json
+
+{
+    "username": "Alien",
+    "password": "zqmp2020"
+}
+
+###
+POST http://127.0.0.1:8000/api/v1/auth/users/
+Content-Type: application/json
+
+{
+    "username": "Hunk",
+    "password": "zqmp2020"
+}
+
+###
+
+Batman
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ3NDY5MCwianRpIjoiNDgwMDE5NDBhMjIyNDcxNzhlNmJjNWYxOGRkMjEyNTciLCJ1c2VyX2lkIjoxfQ.LlW6X8ONylcLG3GyhfjoPgPqN55pVs9ts1bTqxRP6pQ",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyMjkwLCJqdGkiOiI5MzBjNDMyM2VjMjY0MWIzYmQ4NDA1NGFlYjg5NzM1ZCIsInVzZXJfaWQiOjF9.TIZ0Q_G0h4HU04tylZ3cgtZnHRZiV1Bkj1Cgs12xXAI"
+}
+
+Man
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ3NDgwNCwianRpIjoiZTViMTNiMTllYzVhNDBjMjg0NGZlZWIzNjg0NzA3ZjkiLCJ1c2VyX2lkIjoyfQ.61-LEWTI-FlcZT56wjNyiHIjfc1n7d0SiMlXcf02Bms",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4"
+}
+
+Woman
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ3NDgyOSwianRpIjoiMGM3M2Q5MGRhNWNhNDRlY2E3ZjNhYzZkMmRlOTZhYTkiLCJ1c2VyX2lkIjozfQ.Mo3SuqT2FCSoo0po3kIIv5xQdIbh6QA-DbWTULyZHRc",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ"
+}
+
+Alien
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ4MTk5MywianRpIjoiOTQ0NTA5NzY5NTk4NDYzN2I5ZjFjYmFjMGU1YjJmNjciLCJ1c2VyX2lkIjo0fQ.PgYX1fRGuszq-OqQAGbD-7pPYzRjLvqLGd1hGOXKi94",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjU5NTkzLCJqdGkiOiJhZjM2MmZjZDQyNmY0Yzg3ODQwYjA2YTI2MDNkMThkMyIsInVzZXJfaWQiOjR9.7HcPalQAKP3lqEH5Q3iNQkigJRJoRQyerddRQZGEmaU"
+}
+
+### by-woman
+
+GET http://127.0.0.1:8000/api/v1/posts/4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+### by-woman
+
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+{
+    "text": "Here goes woman",
+    "image": "112121",
+    "group": 1
+}
+
+### by-woman
+
+POST http://127.0.0.1:8000/api/v1/follow/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+{
+    "following": "Alien"
+}
+
+### by-woman
+
+GET http://127.0.0.1:8000/api/v1/follow/?search=Alien
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+### by-woman
+
+DELETE http://127.0.0.1:8000/api/v1/follow/1/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+### by-woman
+
+PUT http://127.0.0.1:8000/api/v1/follow/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+{
+    "following": "Man"
+}
+
+### by-woman
+
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+{
+    "text": "      ",
+    "image": "112121",
+    "group": 1
+}
+
+### by-woman
+
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+{
+    "image": "112121",
+    "group": 1
+}
+
+### by-woman
+
+POST http://127.0.0.1:8000/api/v1/follow/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+
+{
+    "text": "      ",
+    "image": "112121",
+    "group": 1
+}
+
+### by-man
+
+GET http://127.0.0.1:8000/api/v1/posts/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
+
+### by-man
+
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
+
+{
+    "text": "Here goes man",
+    "image": "333",
+    "group": 1
+}
+
+### by-man
+
+POST http://127.0.0.1:8000/api/v1/posts/1/comments/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
+
+{
+    "text": "What a woman!"
+}
+### by-man
+
+PUT http://127.0.0.1:8000/api/v1/posts/5/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
+
+{
+    "text": "Here goes man again",
+    "image": "333",
+    "group": 1
+}
+
+### by-batman
+
+GET http://127.0.0.1:8000/api/v1/posts/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyMjkwLCJqdGkiOiI5MzBjNDMyM2VjMjY0MWIzYmQ4NDA1NGFlYjg5NzM1ZCIsInVzZXJfaWQiOjF9.TIZ0Q_G0h4HU04tylZ3cgtZnHRZiV1Bkj1Cgs12xXAI
+
+### by-batman
+
+POST http://127.0.0.1:8000/api/v1/groups/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyMjkwLCJqdGkiOiI5MzBjNDMyM2VjMjY0MWIzYmQ4NDA1NGFlYjg5NzM1ZCIsInVzZXJfaWQiOjF9.TIZ0Q_G0h4HU04tylZ3cgtZnHRZiV1Bkj1Cgs12xXAI
+
+{
+    "title": "two",
+    "slug": "two",
+    "description": "two"
+}
+
+### by-batman
+
+POST http://127.0.0.1:8000/api/v1/jwt/verify/
+Content-Type: application/json
+
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyMjkwLCJqdGkiOiI5MzBjNDMyM2VjMjY0MWIzYmQ4NDA1NGFlYjg5NzM1ZCIsInVzZXJfaWQiOjF9.TIZ0Q_G0h4HU04tylZ3cgtZnHRZiV1Bkj1Cgs12xXAI"
+}
+
+
+### by-alien
+
+GET http://127.0.0.1:8000/api/v1/follow/
+# Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
