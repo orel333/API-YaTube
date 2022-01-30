@@ -1,5 +1,6 @@
 import logging
 import sys
+from django.shortcuts import get_object_or_404
 
 from rest_framework import exceptions
 from rest_framework import serializers
@@ -26,7 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
         default=serializers.CurrentUserDefault()
     )
 
-    text = serializers.Field(default='')
+    text = serializers.CharField(default='')
 
     class Meta:
         model = Post
@@ -34,19 +35,22 @@ class PostSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'image', 'pub_date')
 
     def validate_text(self, value):
-        logger.debug('Начата валидация текста')
+        logger.debug('Начата валидация текста; value:'
+                    f'{value}, value.strip():{value.strip()}')
         if value is None or value.strip() == '':
             logger.debug('Текстовое поле определено пустым')
-            raise exceptions.ValidationError(
+                       
+            raise serializers.ValidationError(
                 'Обязательное поле.'
             )
         return value
 
     def create(self, validated_data):
-        if 'text' not in self.initial_data:
-            raise serializers.ValidationError(
-                'Обязательное поле.'
-            )
+        # if 'text' not in self.initial_data:
+            # logger.debug('Определено, что поле text отсутствует в переданных данных')
+            # raise serializers.ValidationError(
+                # 'Обязательное поле.'
+            # )
         post = Post.objects.create(**validated_data)
         return post
 
@@ -110,9 +114,9 @@ class FollowSerializer(serializers.ModelSerializer):
         model = Follow
 
     def validate_following(self, value):
-        logger.debug('validate_serializer')
-        username = self.context['request'].user.username
-        if value == username:
+        following = get_object_or_404(User, username=value)
+        user = self.context['request'].user
+        if following == user:
             raise serializers.ValidationError(
                 'Подписываться на себя непозволительно.'
             )

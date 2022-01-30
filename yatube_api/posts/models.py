@@ -98,7 +98,6 @@ class Follow(models.Model):
     class Meta:
         verbose_name = 'подписка'
         verbose_name_plural = 'подписки'
-        print('models')
         constraints = (
             models.CheckConstraint(
                 check=~models.Q(user=models.F('following')), name='not_for_self'

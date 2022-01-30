@@ -1,17 +1,14 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import exceptions
-from rest_framework import filters
-from rest_framework import mixins
-from rest_framework import permissions
-from rest_framework import viewsets
+from rest_framework import filters, exceptions, mixins, permissions, viewsets
 from rest_framework.pagination import LimitOffsetPagination
 
-from posts.models import Comment, Follow, Group, Post, User
+from .permissions import OwnerOrReadOnly
 from .serializers import CommentSerializer
 from .serializers import FollowSerializer
 from .serializers import GroupSerializer
 from .serializers import logger
 from .serializers import PostSerializer
+from posts.models import Comment, Follow, Group, Post, User
 
 
 class CreateListViewSet(
@@ -21,58 +18,26 @@ class CreateListViewSet(
 ):
     pass
 
-class PostViewSet(viewsets.ModelViewSet):
+class BaseViewSet(viewsets.ModelViewSet):
+    permission_classes = (OwnerOrReadOnly,)
+
+
+class PostViewSet(BaseViewSet):
     """Вьюсет для постов."""
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
-    
+
 
     def perform_create(self, serializer):
         """Переопределение метода создания комментария.
         Предусмотрено автоматическое присвоение автора."""
         serializer.save(author=self.request.user)
 
-    def perform_update(self, serializer):
-        """Переопределение методов изменения поста.
-        Предусмотрена проверка авторства."""
-        if serializer.instance.author != self.request.user:
-            raise exceptions.PermissionDenied(
-                'У вас недостаточно прав для выполнения данного действия.'
-            )
-        super().perform_update(serializer)
 
-    def perform_destroy(self, instance):
-        """Переопределение метода удаления поста.
-        Предусмотрена проверка авторства."""
-        if instance.author != self.request.user:
-            raise exceptions.PermissionDenied(
-                'У вас недостаточно прав для выполнения данного действия.'
-            )
-        super().perform_destroy(instance)
-
-
-class CommentViewSet(viewsets.ModelViewSet):
+class CommentViewSet(BaseViewSet):
     """Вьюсет для комментариев."""
     serializer_class = CommentSerializer
-
-    def perform_update(self, serializer):
-        """Переопределение методов изменения комментария.
-        Предусмотрена проверка авторства."""
-        if serializer.instance.author != self.request.user:
-            raise exceptions.PermissionDenied(
-                'У вас недостаточно прав для выполнения данного действия.'
-            )
-        super().perform_update(serializer)
-
-    def perform_destroy(self, instance):
-        """Переопределение метода удаления комментария.
-        Предусмотрена проверка авторства."""
-        if instance.author != self.request.user:
-            raise exceptions.PermissionDenied(
-                'У вас недостаточно прав для выполнения данного действия.'
-            )
-        super().perform_destroy(instance)
 
     def get_queryset(self):
         """Переопределение метода получения queryset.
@@ -101,7 +66,7 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
 class FollowViewSet(CreateListViewSet):
     """Вьюсет для подписок."""
-    logger.debug('viewset starts')
+    logger.debug('Запущен вьюсет подписок')
     serializer_class = FollowSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('following__username',)
@@ -116,7 +81,7 @@ class FollowViewSet(CreateListViewSet):
     def perform_create(self, serializer):
         """Переопределение метода создания подписки.
         Предусмотрено автоматическое присвоение владельца подписки."""
-        logger.debug(f'вьюсет: {self.request.data}')
+        logger.debug(f'Начато создание подписки, self.request.data: {self.request.data}')
         following_user = get_object_or_404(
             User, username=self.request.data.get('following')
         )
