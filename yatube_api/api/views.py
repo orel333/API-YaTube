@@ -59,7 +59,7 @@ class CommentViewSet(BaseViewSet):
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
-    """Вьюсет для групп."""
+    """Вьюсет для сообществ."""
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 

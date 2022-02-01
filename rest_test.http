@@ -1,13 +1,69 @@
 POST http://127.0.0.1:8000/api/v1/jwt/create/
 Content-Type: application/json
+# Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ3NDgwNCwianRpIjoiZTViMTNiMTllYzVhNDBjMjg0NGZlZWIzNjg0NzA3ZjkiLCJ1c2VyX2lkIjoyfQ.61-LEWTI-FlcZT56wjNyiHIjfc1n7d0SiMlXcf02Bms
 
 {
-    "username": "Alien",
+    "username": "Hunk",
     "password": "zqmp2020"
 }
 
 ###
-POST http://127.0.0.1:8000/api/v1/auth/users/
+POST http://127.0.0.1:8000/api/v1/jwt/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0Mzc5NzM0OSwianRpIjoiZWNiY2RlYmIwMTNjNDA5NWFhNDY2ZjY3YzczN2MwZDMiLCJ1c2VyX2lkIjo1fQ.szixudq4h0xe0hbQDrr-sRfWNxs6qP8_aMlegrqyXK4"
+}
+
+###
+POST http://127.0.0.1:8000/api/v1/jwt/verify/
+Content-Type: application/json
+
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzgyNDQwMSwianRpIjoiNzgzMDliN2EyOWVkNDE5MGE5YzRhODVlNTU4ZWEyMzMiLCJ1c2VyX2lkIjo1fQ.GNvmTcxi-xOY67r_5r1eo5LAAugClj01KOGH1_Olp54"
+}
+
+###
+
+Hunk
+
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0Mzc5NzM0OSwianRpIjoiZWNiY2RlYmIwMTNjNDA5NWFhNDY2ZjY3YzczN2MwZDMiLCJ1c2VyX2lkIjo1fQ.szixudq4h0xe0hbQDrr-sRfWNxs6qP8_aMlegrqyXK4",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNzExMjQ5LCJqdGkiOiI2MDU2NjQ4ODM5YTY0NTI4YTBjMDk0OGE0NDk5ODc0MSIsInVzZXJfaWQiOjV9.H5t6o3FevmOkpzpzrrKwfkuq_LdI-k4_soVDB6W1G0g"
+}
+
+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNzExMzI3LCJqdGkiOiJiNWFkODIyNTgxZWY0OGM4YWMwODIzNGE4Y2MwNmUyMyIsInVzZXJfaWQiOjV9.V7PSAsfLU7jBJ0UFOQL_XipEUjGr5p1fnsUysIJB-ds'
+    "image": "(b'\x47\x49\x46\x38\x39\x61\x02\x00\x01\x00\x80\x00\x00\x00\x00\x00\xFF\xFF\xFF\x21\xF9\x04\x00\x00\x00\x00\x00\x2C\x00\x00\x00\x00\x02\x00\x01\x00\x00\x02\x02\x0C\x0A\x00\x3B')",
+
+
+### by-hunk
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNzQyMTEzLCJqdGkiOiJiZDEwMWExNDEyZWU0NTVmYjg2ZTkxOTE4NjEwMjk4ZCIsInVzZXJfaWQiOjV9.joZ2PBugvekkBg3S7AIk0kIlAUrKba4AwMsS2D3LHww
+
+{
+    "text": "Woooo!"
+}
+
+### by-alien
+DELETE http://127.0.0.1:8000/api/v1/posts/28/comments/4/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNzQxNjM2LCJqdGkiOiIyM2I1OTU1OWNjNDg0ZDJlODM1MjgzYzhiODdiNGQxYSIsInVzZXJfaWQiOjR9.WOi2MrCiTb7BQ1vQb11AT1bzHkc2XH5HbjLHBkiU6WQ
+
+### by-hunk
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNzExMzI3LCJqdGkiOiJiNWFkODIyNTgxZWY0OGM4YWMwODIzNGE4Y2MwNmUyMyIsInVzZXJfaWQiOjV9.V7PSAsfLU7jBJ0UFOQL_XipEUjGr5p1fnsUysIJB-ds
+
+{
+    "text": "Here Hunk goes with token by 13:24",
+    "image": "112121",
+    "group": 2
+}
+
+
+###
+POST http://127.0.0.1:8000/api/v1/users/
 Content-Type: application/json
 
 {
@@ -15,6 +71,10 @@ Content-Type: application/json
     "password": "zqmp2020"
 }
 
+###
+GET http://127.0.0.1:8000/api/v1/users/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
 ###
 
 Batman
@@ -25,8 +85,18 @@ Batman
 
 Man
 {
-  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ3NDgwNCwianRpIjoiZTViMTNiMTllYzVhNDBjMjg0NGZlZWIzNjg0NzA3ZjkiLCJ1c2VyX2lkIjoyfQ.61-LEWTI-FlcZT56wjNyiHIjfc1n7d0SiMlXcf02Bms",
-  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4"
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzY1NDkyMiwianRpIjoiNTcxMzE5NjhkOGVhNGUyNGFjNjY0NjUyMDZlYTcyYzIiLCJ1c2VyX2lkIjoyfQ.UShztHFND-Sm9T_FRdga5lj4sWehg2DpsgO5v3EEDbo",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NDMyODA3LCJqdGkiOiI4MTA1MDcxZTFmN2E0MTk3ODlhODI5YWJjODg5MzAwZiIsInVzZXJfaWQiOjJ9.0a90FLuG-O50oeMPt50ln8GlWtfFr7qJPfCjS4IfUkQ"
+}
+
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzY1NTk0MiwianRpIjoiNjIzMjkwYTQzYmQ0NDBmMWIzZGM1OTJkMzZhM2E4YmMiLCJ1c2VyX2lkIjoyfQ.UlfLNuWRRqVNsWmjPvGb6ICuL96xsoAVE-I4IzJcdN0",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NDMzNTQyLCJqdGkiOiJhNWU0NTIwYWZjOGU0ZjJmOGJjMmUwMmMyZWY5YzE3ZiIsInVzZXJfaWQiOjJ9.pjOwsxG_jxPbXXczi5U667fi07-FcEtMVOnF6ZbT5Qg"
+}
+
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzY1NjEyMiwianRpIjoiYWZlMjExYzI5OTJmNDM2Mzg3ZGM0YWE4NzA3ZWZkMjkiLCJ1c2VyX2lkIjoyfQ.sFzKN9tKLHWoPzNmJlpknKFpeY1E11TJ0AYedLt037E",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NDMzNzIyLCJqdGkiOiJkMDgyMzc0NmQ4Zjc0M2IwYWVmYmZiMzhiZDQ0Zjg1NCIsInVzZXJfaWQiOjJ9.LIDQNuAHiTW8oRQegBFfC_rV53jcJH3J9_NerzVfSB4"
 }
 
 Woman
@@ -41,6 +111,19 @@ Alien
   "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjU5NTkzLCJqdGkiOiJhZjM2MmZjZDQyNmY0Yzg3ODQwYjA2YTI2MDNkMThkMyIsInVzZXJfaWQiOjR9.7HcPalQAKP3lqEH5Q3iNQkigJRJoRQyerddRQZGEmaU"
 }
 
+
+
+### by-hunk
+POST http://127.0.0.1:8000/api/v1/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNjYyMzEzLCJqdGkiOiJhMzFkOTY4Y2YwNTA0ZTJjYTliN2YwZDczMGRlNzkzNCIsInVzZXJfaWQiOjV9.GoO79Q1yNKNm5q6DGF1tEBowV7WbD_csIBuuPOkJBbI
+
+{
+    "text": "Here Hunk goes with new token",
+    "image": "112121",
+    "group": 2
+}
+
 ### by-woman
 
 GET http://127.0.0.1:8000/api/v1/posts/4
@@ -53,7 +136,7 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
 
 {
-    "text": "Here goes woman",
+    "text": "Here goes woman 2",
     "image": "112121",
     "group": 1
 }
@@ -65,12 +148,12 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
 
 {
-    "following": "Woman"
+    "following": "Man"
 }
 
 ### by-woman
 
-GET http://127.0.0.1:8000/api/v1/follow/?search=Alien
+GET http://127.0.0.1:8000/api/v1/follow/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
 
@@ -127,7 +210,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ### by-woman
 
-GET http://127.0.0.1:8000/api/v1/posts/1/comments/
+GET http://127.0.0.1:8000/api/v1/posts/1/comments/2/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
 
@@ -150,11 +233,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 POST http://127.0.0.1:8000/api/v1/posts/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NDMyODA3LCJqdGkiOiI4MTA1MDcxZTFmN2E0MTk3ODlhODI5YWJjODg5MzAwZiIsInVzZXJfaWQiOjJ9.0a90FLuG-O50oeMPt50ln8GlWtfFr7qJPfCjS4IfUkQ
 {
-    "text": "Here goes man",
-    "image": "333",
+    "text": "Come on!",
+    "image": "b333",
     "group": 1
 }
 
@@ -165,7 +247,7 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
 
 {
-    "text": "What a woman!"
+    "text": "Cute!"
 }
 ### by-man
 
@@ -186,6 +268,17 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 {
     "text": "She is so beautiful!"
 }
+
+### by-man
+
+GET http://127.0.0.1:8000/api/v1/follow/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDA0LCJqdGkiOiIyMTg5ODg2YzMyNDI0YjI1OGFkNDMyNzRjZGM2Y2MzYiIsInVzZXJfaWQiOjJ9.e5ok1k4XKnvc5QXB9FjOgd8jeaR-IpULjDMf8jn9Wp4
+
+{
+    "user": "Woman"
+}
+
 
 ### by-batman
 

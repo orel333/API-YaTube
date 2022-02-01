@@ -17,7 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'djoser',
+    'rest_framework_simplejwt.token_blacklist',
     'api.apps.ApiConfig',
     'posts.apps.PostsConfig',
 ]
@@ -108,6 +110,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+

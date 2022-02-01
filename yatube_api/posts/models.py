@@ -7,8 +7,8 @@ User = get_user_model()
 
 
 class Group(models.Model):
-    title = models.CharField('Название группы', max_length=200)
-    description = models.TextField('Описание группы')
+    title = models.CharField('Название сообщества', max_length=200)
+    description = models.TextField('Описание сообщества')
     slug = models.SlugField('Индекс URL', unique=True)
 
     class Meta:
