@@ -209,7 +209,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9k94BlIjoiY
   }
 ]
 ```
-```
 
 Создаём комментарий к публикации:
 ```
