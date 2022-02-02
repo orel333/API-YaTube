@@ -16,11 +16,12 @@ logger.setLevel(logging.DEBUG)
 handler = logging.StreamHandler(sys.stdout)
 logger.addHandler(handler)
 handler.setFormatter(formatter)
-logger.disabled = False
+logger.disabled = True
 logger.debug('Логирование запущено')
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """Сериализатор публикаций."""
     author = serializers.SlugRelatedField(
         slug_field='username',
         read_only=True,
@@ -35,6 +36,8 @@ class PostSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'image', 'pub_date')
 
     def validate_text(self, value):
+        """Валидация текста публикации.
+        Проверяется, чтобы поле не было пустым."""
         logger.debug('Начата валидация текста; value:'
                      f'{value}, value.strip():{value.strip()}')
         if value is None or value.strip() == '':
@@ -44,12 +47,9 @@ class PostSerializer(serializers.ModelSerializer):
             )
         return value
 
-    def create(self, validated_data):
-        post = Post.objects.create(**validated_data)
-        return post
-
 
 class CommentSerializer(serializers.ModelSerializer):
+    """Сериализатор комментариев."""
     author = serializers.SlugRelatedField(
         read_only=True,
         slug_field='username',
@@ -62,6 +62,8 @@ class CommentSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'post', 'created')
 
     def validate_text(self, value):
+        """Валидация текста комментария.
+        Проверяется, чтобы поле не было пустым."""
         logger.debug('Начата валидация текста')
         if value is None or value.strip() == '':
             logger.debug('Текстовое поле определено пустым')
@@ -71,6 +73,8 @@ class CommentSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
+        """Переопределение функции создания текста.
+        Оценивается присутствие поля 'text' в теле запроса."""
         if 'text' not in self.initial_data:
             raise serializers.ValidationError(
                 'Обязательное поле.'
@@ -80,6 +84,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
+    """Сериализатор сообществ."""
 
     class Meta:
         fields = ('id', 'title', 'slug', 'description')
@@ -87,6 +92,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
 
 class FollowSerializer(serializers.ModelSerializer):
+    """Сериализатор подписок."""
     user = serializers.SlugRelatedField(
         read_only=True,
         slug_field='username',
@@ -102,13 +108,15 @@ class FollowSerializer(serializers.ModelSerializer):
         validators = [
             UniqueTogetherValidator(
                 queryset=Follow.objects.all(),
-                fields=['user', 'following']
+                fields=('user', 'following')
             )
         ]
         fields = ('user', 'following')
         model = Follow
 
     def validate_following(self, value):
+        """Валидация подписки.
+        Проверяется, чтобы пользователь не подписывается сам на себя."""
         following = get_object_or_404(User, username=value)
         user = self.context['request'].user
         if following == user:

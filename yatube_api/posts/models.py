@@ -7,6 +7,7 @@ User = get_user_model()
 
 
 class Group(models.Model):
+    """Модель сообществ."""
     title = models.CharField('Название сообщества', max_length=200)
     description = models.TextField('Описание сообщества')
     slug = models.SlugField('Индекс URL', unique=True)
@@ -20,6 +21,7 @@ class Group(models.Model):
 
 
 class Post(models.Model):
+    """Модель публикаций."""
     text = models.TextField('Текст поста', null=True, blank=True)
     pub_date = models.DateTimeField('Дата публикации', auto_now_add=True)
     author = models.ForeignKey(
@@ -53,6 +55,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """Модель комментариев."""
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -82,6 +85,7 @@ class Comment(models.Model):
 
 
 class Follow(models.Model):
+    """Модель подписок."""
     user = models.ForeignKey(
         User,
         verbose_name='Подписчик',
@@ -104,6 +108,6 @@ class Follow(models.Model):
                 name='not_for_self'
             ),
             models.UniqueConstraint(
-                fields=['user', 'following'], name='unique_follow'
+                fields=('user', 'following'), name='unique_follow'
             ),
         )
