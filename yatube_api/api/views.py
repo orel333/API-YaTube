@@ -21,13 +21,15 @@ class CreateListViewSet(
 
 class BaseViewSet(viewsets.ModelViewSet):
     permission_classes = (OwnerOrReadOnly,)
+    filter_backends = (filters.OrderingFilter,)
 
 
 class PostViewSet(BaseViewSet):
     """Вьюсет для постов."""
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    pagination_class = LimitOffsetPagination
+    pagination_class = LimitOffsetPagination  
+    ordering_fields = ('pub_date',)
 
     def perform_create(self, serializer):
         """Переопределение метода создания комментария.
@@ -38,6 +40,7 @@ class PostViewSet(BaseViewSet):
 class CommentViewSet(BaseViewSet):
     """Вьюсет для комментариев."""
     serializer_class = CommentSerializer
+    ordering_fields = ('created',)
 
     def get_queryset(self):
         """Переопределение метода получения queryset.

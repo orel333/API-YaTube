@@ -39,11 +39,14 @@ Hunk
 ### by-hunk
 POST http://127.0.0.1:8000/api/v1/posts/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNzQyMTEzLCJqdGkiOiJiZDEwMWExNDEyZWU0NTVmYjg2ZTkxOTE4NjEwMjk4ZCIsInVzZXJfaWQiOjV9.joZ2PBugvekkBg3S7AIk0kIlAUrKba4AwMsS2D3LHww
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzODA0MzkwLCJqdGkiOiIyNjU5NTA2ZTY3MjU0YmQ2OTUxYjUxYjVkMTAyMzhjNCIsInVzZXJfaWQiOjV9.8J3wun8z0UTqdZc4NKzznRzRFV8budROxS5GgR9ENao
 
 {
-    "text": "Woooo!"
+    "text": "Тестовый пост 11"
 }
+
+### 
+GET http://127.0.0.1:8000/api/v1/posts/?limit=3&offset=2
 
 ### by-alien
 DELETE http://127.0.0.1:8000/api/v1/posts/28/comments/4/
@@ -126,8 +129,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ### by-woman
 
-GET http://127.0.0.1:8000/api/v1/posts/4
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+GET http://127.0.0.1:8000/api/v1/posts/42
 
 ### by-woman
 
@@ -145,17 +147,17 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 POST http://127.0.0.1:8000/api/v1/follow/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzODA0Nzg1LCJqdGkiOiIxY2NkMjE4NTk5Njc0MThjYTFmNDU3ZmQ2ZTRmZWZjNSIsInVzZXJfaWQiOjV9.fGmnrvtNjRdxR7JPHWUZ2mLudmK9Dm7H4vbiKtLe_Hw
 
 {
-    "following": "Man"
+    "following": "Batman"
 }
 
 ### by-woman
 
-GET http://127.0.0.1:8000/api/v1/follow/
+GET http://127.0.0.1:8000/api/v1/follow/?search=man
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzODA0Nzg1LCJqdGkiOiIxY2NkMjE4NTk5Njc0MThjYTFmNDU3ZmQ2ZTRmZWZjNSIsInVzZXJfaWQiOjV9.fGmnrvtNjRdxR7JPHWUZ2mLudmK9Dm7H4vbiKtLe_Hw
 
 ### by-woman
 
@@ -210,18 +212,18 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ### by-woman
 
-GET http://127.0.0.1:8000/api/v1/posts/1/comments/2/
+GET http://127.0.0.1:8000/api/v1/posts/42/comments/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
 
-### by-woman
+### by-Hunk
 
-PATCH http://127.0.0.1:8000/api/v1/posts/1/comments/1/
+PATCH http://127.0.0.1:8000/api/v1/posts/42/comments/5/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzODA1MTA4LCJqdGkiOiI1ZDY3YzM4YTQzMTM0OTNiOGUxMzQ5M2FmNGIwYjI2NCIsInVzZXJfaWQiOjV9.ZHHw9kWOUXhn6okNUYxUYF2Etru7wvl80ujQL7Fw680
 
 {
-    "text": "She is so beautiful!"
+    "text": "Hunk! Hunk! Hu-a-nk!"
 }
 
 ### by-man
