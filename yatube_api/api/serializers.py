@@ -2,7 +2,6 @@ import logging
 import sys
 from django.shortcuts import get_object_or_404
 
-from rest_framework import exceptions
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
@@ -20,6 +19,7 @@ handler.setFormatter(formatter)
 logger.disabled = False
 logger.debug('Логирование запущено')
 
+
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(
         slug_field='username',
@@ -36,21 +36,15 @@ class PostSerializer(serializers.ModelSerializer):
 
     def validate_text(self, value):
         logger.debug('Начата валидация текста; value:'
-                    f'{value}, value.strip():{value.strip()}')
+                     f'{value}, value.strip():{value.strip()}')
         if value is None or value.strip() == '':
             logger.debug('Текстовое поле определено пустым')
-                       
             raise serializers.ValidationError(
                 'Обязательное поле.'
             )
         return value
 
     def create(self, validated_data):
-        # if 'text' not in self.initial_data:
-            # logger.debug('Определено, что поле text отсутствует в переданных данных')
-            # raise serializers.ValidationError(
-                # 'Обязательное поле.'
-            # )
         post = Post.objects.create(**validated_data)
         return post
 
@@ -86,10 +80,11 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         fields = ('id', 'title', 'slug', 'description')
         model = Group
+
 
 class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(

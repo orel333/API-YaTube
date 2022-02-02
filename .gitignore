@@ -151,5 +151,4 @@ yatube_api/posts/static/
 
 .isort.cfg
 
-README.md
 rest_test.http

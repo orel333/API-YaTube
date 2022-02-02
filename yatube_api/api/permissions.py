@@ -3,6 +3,7 @@ from rest_framework import permissions
 
 from .serializers import logger
 
+
 class OwnerOrReadOnly(permissions.BasePermission):
     logger.debug('Инициировано определение прав пользователя на запрос')
 

@@ -12,8 +12,8 @@ class Group(models.Model):
     slug = models.SlugField('Индекс URL', unique=True)
 
     class Meta:
-        verbose_name='группа'
-        verbose_name_plural='группы'
+        verbose_name = 'группа'
+        verbose_name_plural = 'группы'
 
     def __str__(self):
         return self.title
@@ -78,7 +78,7 @@ class Comment(models.Model):
     class Meta:
         ordering = ('created',)
         verbose_name = 'комментарий'
-        verbose_name_plural = 'комментарии'  
+        verbose_name_plural = 'комментарии'
 
 
 class Follow(models.Model):
@@ -100,7 +100,8 @@ class Follow(models.Model):
         verbose_name_plural = 'подписки'
         constraints = (
             models.CheckConstraint(
-                check=~models.Q(user=models.F('following')), name='not_for_self'
+                check=~models.Q(user=models.F('following')),
+                name='not_for_self'
             ),
             models.UniqueConstraint(
                 fields=['user', 'following'], name='unique_follow'

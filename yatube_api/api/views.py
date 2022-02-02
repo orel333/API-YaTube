@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import filters, exceptions, mixins, permissions, viewsets
+from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.pagination import LimitOffsetPagination
 
 from .permissions import OwnerOrReadOnly
@@ -18,6 +18,7 @@ class CreateListViewSet(
 ):
     pass
 
+
 class BaseViewSet(viewsets.ModelViewSet):
     permission_classes = (OwnerOrReadOnly,)
 
@@ -27,7 +28,6 @@ class PostViewSet(BaseViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
-
 
     def perform_create(self, serializer):
         """Переопределение метода создания комментария.
@@ -81,7 +81,8 @@ class FollowViewSet(CreateListViewSet):
     def perform_create(self, serializer):
         """Переопределение метода создания подписки.
         Предусмотрено автоматическое присвоение владельца подписки."""
-        logger.debug(f'Начато создание подписки, self.request.data: {self.request.data}')
+        logger.debug('Начато создание подписки, '
+                     f'self.request.data: {self.request.data}')
         following_user = get_object_or_404(
             User, username=self.request.data.get('following')
         )
