@@ -28,7 +28,7 @@ class PostViewSet(BaseViewSet):
     """Вьюсет для постов."""
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    pagination_class = LimitOffsetPagination  
+    pagination_class = LimitOffsetPagination
     ordering_fields = ('pub_date',)
 
     def perform_create(self, serializer):
