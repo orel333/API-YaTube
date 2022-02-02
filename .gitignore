@@ -152,3 +152,4 @@ yatube_api/posts/static/
 .isort.cfg
 
 rest_test.http
+outhouse/
