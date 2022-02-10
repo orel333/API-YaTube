@@ -12,7 +12,8 @@ POST http://127.0.0.1:8000/api/v1/jwt/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0Mzc5NzM0OSwianRpIjoiZWNiY2RlYmIwMTNjNDA5NWFhNDY2ZjY3YzczN2MwZDMiLCJ1c2VyX2lkIjo1fQ.szixudq4h0xe0hbQDrr-sRfWNxs6qP8_aMlegrqyXK4"
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0NDQ4NDQ2MiwianRpIjoiZjY0MDNkMWY4ZTZiNDhhZmI0NzBkMjcwYjY0YzRjNTMiLCJ1c2VyX2lkIjo1fQ.o9lq5wpCq_Rm9Hv1LfnWBTUDPjlWpPKZL3f_V6wyXpw",
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTcxMDA1LCJqdGkiOiJmMmU0ZmZjYTc2YzM0ZTMxYWRmYTRiNjMxNzZiMjY2MyIsInVzZXJfaWQiOjV9.zxX1HrNE7yGozT5Sk3FvE0wR_a4pIPK6SJuQQrnn0cw"
 }
 
 ###
@@ -20,7 +21,7 @@ POST http://127.0.0.1:8000/api/v1/jwt/verify/
 Content-Type: application/json
 
 {
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzgyNDQwMSwianRpIjoiNzgzMDliN2EyOWVkNDE5MGE5YzRhODVlNTU4ZWEyMzMiLCJ1c2VyX2lkIjo1fQ.GNvmTcxi-xOY67r_5r1eo5LAAugClj01KOGH1_Olp54"
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTcxMDA1LCJqdGkiOiJmMmU0ZmZjYTc2YzM0ZTMxYWRmYTRiNjMxNzZiMjY2MyIsInVzZXJfaWQiOjV9.zxX1HrNE7yGozT5Sk3FvE0wR_a4pIPK6SJuQQrnn0cw"
 }
 
 ###
@@ -39,10 +40,10 @@ Hunk
 ### by-hunk
 POST http://127.0.0.1:8000/api/v1/posts/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzODA0MzkwLCJqdGkiOiIyNjU5NTA2ZTY3MjU0YmQ2OTUxYjUxYjVkMTAyMzhjNCIsInVzZXJfaWQiOjV9.8J3wun8z0UTqdZc4NKzznRzRFV8budROxS5GgR9ENao
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTY4NTgyLCJqdGkiOiIwM2FmNWM0MDIzMjQ0YmE3OTgyMzY1N2M3MWNkM2JhOSIsInVzZXJfaWQiOjV9.A5VKcFqw5I1oXWMFTmP14DeqXWYS8kBjRI4K8w-G0Iw
 
 {
-    "text": "Тестовый пост 11"
+    "text": "Хенк летать"
 }
 
 ### 
@@ -127,7 +128,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
     "group": 2
 }
 
-### by-woman
+###
 
 GET http://127.0.0.1:8000/api/v1/posts/42
 
@@ -167,12 +168,21 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ### by-woman
 
-PATCH  http://127.0.0.1:8000/api/v1/posts/2/
+PATCH  http://127.0.0.1:8000/api/v1/posts/42/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTY4MzgzLCJqdGkiOiJiMTU2Y2VhNzhmYjQ0MzYwYjllMTY4NjE2MmMwNWYwYiIsInVzZXJfaWQiOjN9.nTCA7FRv3pUFsetc8k8msfCaBR6FuCbhKzYlugzmlu8
 
 {
     "text": "Women are better!"
+}
+### by-Hunk
+
+PATCH  http://127.0.0.1:8000/api/v1/posts/42/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTY4NTgyLCJqdGkiOiIwM2FmNWM0MDIzMjQ0YmE3OTgyMzY1N2M3MWNkM2JhOSIsInVzZXJfaWQiOjV9.A5VKcFqw5I1oXWMFTmP14DeqXWYS8kBjRI4K8w-G0Iw
+
+{
+    "text": "Hunk is strong!"
 }
 
 ### by-woman

@@ -6,6 +6,8 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 
+#from .jwtviews import MyTokenRefreshView
+from .jwtviews import MyTokenRefreshView
 from .views import (
     CommentViewSet,
     FollowViewSet,
@@ -26,6 +28,8 @@ router_v1.register(r'posts', PostViewSet, basename='post')
 urlpatterns = [
     path('v1/', include(router_v1.urls)),
     path('v1/jwt/create/', TokenObtainPairView.as_view()),
-    path('v1/jwt/refresh/', TokenRefreshView.as_view()),
+    # path('v1/jwt/create/', MyTokenObtainPairView.as_view()),
+    # path('v1/jwt/refresh/', TokenRefreshView.as_view()),
+    path('v1/jwt/refresh/', MyTokenRefreshView.as_view()),
     path('v1/jwt/verify/', TokenVerifyView.as_view()),
 ]
