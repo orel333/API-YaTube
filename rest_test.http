@@ -3,7 +3,7 @@ Content-Type: application/json
 # Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ3NDgwNCwianRpIjoiZTViMTNiMTllYzVhNDBjMjg0NGZlZWIzNjg0NzA3ZjkiLCJ1c2VyX2lkIjoyfQ.61-LEWTI-FlcZT56wjNyiHIjfc1n7d0SiMlXcf02Bms
 
 {
-    "username": "Hunk",
+    "username": "Woman",
     "password": "zqmp2020"
 }
 
@@ -12,8 +12,8 @@ POST http://127.0.0.1:8000/api/v1/jwt/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0NDQ4NDQ2MiwianRpIjoiZjY0MDNkMWY4ZTZiNDhhZmI0NzBkMjcwYjY0YzRjNTMiLCJ1c2VyX2lkIjo1fQ.o9lq5wpCq_Rm9Hv1LfnWBTUDPjlWpPKZL3f_V6wyXpw",
-    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTcxMDA1LCJqdGkiOiJmMmU0ZmZjYTc2YzM0ZTMxYWRmYTRiNjMxNzZiMjY2MyIsInVzZXJfaWQiOjV9.zxX1HrNE7yGozT5Sk3FvE0wR_a4pIPK6SJuQQrnn0cw"
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0NDU5NjE3NiwianRpIjoiODliMWFjYTQ5NTAyNGExNTlkYTNkOWViOTAyYzYzODIiLCJ1c2VyX2lkIjozfQ.Mh_ncKhAuPyzVAeT2TUU6nj_dHCwXf0VOAJ5whPxUgE",
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTA5ODk2LCJqdGkiOiJlZDA5YjQ2NWJlNGU0Mjk4ODkzYmQ5NzFlYzdiZDMwMSIsInVzZXJfaWQiOjN9.61V8q_THhxoFGPvEDwXN-l_dwJYOfKNCHBNjcYgFHpQ"
 }
 
 ###
@@ -40,10 +40,19 @@ Hunk
 ### by-hunk
 POST http://127.0.0.1:8000/api/v1/posts/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTY4NTgyLCJqdGkiOiIwM2FmNWM0MDIzMjQ0YmE3OTgyMzY1N2M3MWNkM2JhOSIsInVzZXJfaWQiOjV9.A5VKcFqw5I1oXWMFTmP14DeqXWYS8kBjRI4K8w-G0Iw
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTk0NDgyLCJqdGkiOiIyY2ZlMjEyZTM0ODY0YTE1YWQ3MzBlYmVlODBmNjY0MiIsInVzZXJfaWQiOjV9.BV0_0VT1SPsuSxyynNh6l9MYVnYPeNt5L5ttpqOaZos
 
 {
     "text": "Хенк летать"
+}
+
+### by-hunk
+PATCH http://127.0.0.1:8000/api/v1/posts/42/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0NTcxMDA1LCJqdGkiOiJmMmU0ZmZjYTc2YzM0ZTMxYWRmYTRiNjMxNzZiMjY2MyIsInVzZXJfaWQiOjV9.zxX1HrNE7yGozT5Sk3FvE0wR_a4pIPK6SJuQQrnn0cw
+
+{
+    "text": "Хенк не летать"
 }
 
 ### 

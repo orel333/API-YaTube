@@ -51,13 +51,18 @@ class MyTokenRefreshView(TokenRefreshView):
         to_read.close()
         
         now = int(time.time())
+
+        keys = []
         
         for key in new_dict:
             if int(key) > now:
                 logger.debug(f'TOKEN {new_dict[key]} STILL CAN BE USED')
             else:
                 logger.debug(f'TOKEN {new_dict[key]} WILL BE DESTROYED')
-                del new_dict[key]
+                keys.append(key)
+        
+        for key in keys:
+            del new_dict[key]
         
         to_write = open('access_blacklist.txt', 'w')
         to_write.write(to_str(new_dict))
