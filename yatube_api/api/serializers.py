@@ -16,7 +16,7 @@ logger.setLevel(logging.DEBUG)
 handler = logging.StreamHandler(sys.stdout)
 logger.addHandler(handler)
 handler.setFormatter(formatter)
-logger.disabled = True
+logger.disabled = False
 logger.debug('Логирование запущено')
 
 
@@ -38,7 +38,7 @@ class PostSerializer(serializers.ModelSerializer):
     def validate_text(self, value):
         """Валидация текста публикации.
         Проверяется, чтобы поле не было пустым."""
-        logger.debug('Начата валидация текста; value:'
+        logger.debug('Сериализатор: начата валидация текста; value:'
                      f'{value}, value.strip():{value.strip()}')
         if value is None or value.strip() == '':
             logger.debug('Текстовое поле определено пустым')

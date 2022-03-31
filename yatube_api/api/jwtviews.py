@@ -15,7 +15,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from .methods import to_dict, to_str
 from posts.models import User
 from .serializers import logger
-from yatube_api.settings import BLACK_LIST_ACCESS, SECRET_KEY
+from yatube_api.settings import SECRET_KEY
 
 class MyTokenRefreshSerializer(TokenRefreshSerializer):
     pass

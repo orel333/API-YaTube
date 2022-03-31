@@ -13,6 +13,7 @@ from posts.models import Comment, Follow, Group, Post, User
 
 class PostViewSet(BaseViewSet):
     """Вьюсет для постов."""
+    logger.debug('Вьюсет для постов запустился')
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
@@ -21,6 +22,8 @@ class PostViewSet(BaseViewSet):
     def perform_create(self, serializer):
         """Переопределение метода создания комментария.
         Предусмотрено автоматическое присвоение автора."""
+        logger.debug('Вьюсет для постов: perform create')
+        logger.debug(serializer.__dict__)
         serializer.save(author=self.request.user)
 
 

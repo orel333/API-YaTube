@@ -139,16 +139,16 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ###
 
-GET http://127.0.0.1:8000/api/v1/posts/42
+GET http://127.0.0.1:8000/api/v1/posts/
 
 ### by-woman
 
 POST http://127.0.0.1:8000/api/v1/posts/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MjUyNDI5LCJqdGkiOiJkZWE3M2RhOWIzN2I0MmI2ODlmYmQzNjI5NWYwZDA2YiIsInVzZXJfaWQiOjN9.0Hpkp3bzP9IsugqZYQ9t8vruUFBNZV1RnZgueS67ruQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1MDM1NDE4LCJqdGkiOiJhMDRhZDBjMDBlZDA0YmI2YTVhZjgwN2M1NmZiOTJjMSIsInVzZXJfaWQiOjN9.8_KLgFDP_w2S8pH25EOs_DZR43LRbc7ma51hP8vpH_4
 
 {
-    "text": "Here goes woman 2",
+    "text": "Here goes woman 20",
     "image": "112121",
     "group": 1
 }
